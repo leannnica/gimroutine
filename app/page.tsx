@@ -76,7 +76,7 @@ export default function GymRoutine() {
   }
 
   return (
-    <div className="min-h-screen from-slate-50 to-slate-100 dark:bg-slate-800 dark:hover:bg-slate-900 dark:border-slate-700 p-4">
+    <div className="min-h-screen from-slate-50 to-slate-100 dark:bg-slate-900 dark:border-slate-700 p-4">
       <div className="max-w-md mx-auto space-y-6">
         {/* Header */}
         <div className="text-center space-y-4 pt-8" style={{ padding: "0px" }}>
@@ -84,11 +84,12 @@ export default function GymRoutine() {
           variant="ghost"
           size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="bg-orange-300 dark:bg-orange-900 hover:bg-orange-300"
           >
           {theme === "dark" ? (
             <Sun className="h-8 w-8 text-orange-600" />
           ) : (
-            <Moon className="h-8 w-8 text-orange-600" />
+            <Moon className="h-8 w-8 text-orange-700" />
           )}
         </Button>
           <div className="flex items-center justify-center gap-2">
@@ -116,7 +117,7 @@ export default function GymRoutine() {
 
         {/* Routine Tabs */}
         <Tabs value={activeDay} onValueChange={setActiveDay} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 gap-1 h-auto p-1 bg-white shadow-sm dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700">
+          <TabsList className="grid w-full grid-cols-2 gap-1 h-auto p-1 bg-white shadow-sm dark:bg-slate-800 dark:border-slate-700">
             {rutinaData.rutina.slice(0, 2).map((dia) => (
               <TabsTrigger
                 key={dia.dia}
@@ -131,7 +132,7 @@ export default function GymRoutine() {
             ))}
           </TabsList>
 
-          <TabsList className="grid w-full grid-cols-2 gap-1 h-auto p-1 bg-white shadow-sm mt-2 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700">
+          <TabsList className="grid w-full grid-cols-2 gap-1 h-auto p-1 bg-white shadow-sm mt-2 dark:bg-slate-800 dark:border-slate-700">
             {rutinaData.rutina.slice(2, 4).map((dia) => (
               <TabsTrigger
                 key={dia.dia}
