@@ -2,7 +2,8 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata = {
-  title: "Mi rutina de gimnasio",
+  title: "Gim Routine",
+  keywords: ["gym", "routine", "workout", "fitness"],
   description: "App de entrenamiento",
 }
 
