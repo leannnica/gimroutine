@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -38,9 +38,16 @@ const rutinaData = {
 }
 
 export default function GymRoutine() {
-  const { setTheme, theme } = useTheme()
   const [completedExercises, setCompletedExercises] = useState<{ [key: string]: boolean }>({})
   const [activeDay, setActiveDay] = useState("Pecho")
+
+  const {theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  if (!mounted) return null
 
   const toggleExercise = (day: string, exercise: string) => {
     const key = `${day}-${exercise}`
@@ -72,7 +79,7 @@ export default function GymRoutine() {
     <div className="min-h-screen from-slate-50 to-slate-100 dark:bg-slate-800 dark:hover:bg-slate-900 dark:border-slate-700 p-4">
       <div className="max-w-md mx-auto space-y-6">
         {/* Header */}
-        <div className="text-center space-y-4 pt-8">
+        <div className="text-center space-y-4 pt-8" style={{ padding: "0px" }}>
         <Button
           variant="ghost"
           size="icon"
