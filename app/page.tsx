@@ -38,7 +38,20 @@ const rutinaData = {
 }
 
 export default function GymRoutine() {
-  const [completedExercises, setCompletedExercises] = useState<{ [key: string]: boolean }>({})
+  const [completedExercises, setCompletedExercises] = useState<{ [key: string]: boolean }>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("completedExercises")
+      return stored ? JSON.parse(stored) : {}
+    }
+    return {}
+  })
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("completedExercises", JSON.stringify(completedExercises))
+    }
+  }, [completedExercises])
+
   const [activeDay, setActiveDay] = useState("Pecho")
 
   const {theme, setTheme } = useTheme()
@@ -155,7 +168,10 @@ export default function GymRoutine() {
                   <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Día de {dia.dia}</h2>
                 </div>
                 <Button variant="outline" size="sm" onClick={() => resetDay(dia.dia)} className="text-slate-600 dark:text-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700">
-                  Reiniciar
+                  Reiniciar día
+                </Button>
+                <Button variant="outline" size="sm" onClick={() => setCompletedExercises({})} className="text-slate-600 dark:text-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700">
+                  Borrar progreso
                 </Button>
               </div>
               <div className="space-y-3">
