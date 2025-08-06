@@ -1,0 +1,41 @@
+[
+  {
+	"dia": "Pecho",
+	"ejercicios": [
+	  "Press Plano",
+	  "Press Inclinado",
+	  "Aperturas",
+	  "Triceps en Poleas"
+	]
+  },
+  {
+	"dia": "Espalda",
+	"ejercicios": [
+	  "Dorsaleras",
+	  "Dominadas",
+	  "Remo",
+	  "Jalon Unilateral",
+	  "Face Pull"
+	]
+  },
+  {
+	"dia": "Hombros",
+	"ejercicios": [
+	  "Press Militar",
+	  "Vuelo Lateral",
+	  "Posteriores en Maquina",
+	  "Subida con Barra W"
+	]
+  },
+  {
+	"dia": "Piernas",
+	"ejercicios": [
+	  "Prensa",
+	  "Aductores",
+	  "Sillon de Cuadriceps",
+	  "Camilla de Isquios",
+	  "Gemelos",
+	  "Sentadillas"
+	]
+  }
+]
